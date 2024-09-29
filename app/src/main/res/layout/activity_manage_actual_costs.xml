@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_act">
+
+        <LinearLayout
+            android:id="@+id/layoutTabTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_12sdp"
+            android:background="@drawable/bg_gray_border_min_stroke"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textTab1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/font_semi_bold"
+                android:paddingVertical="@dimen/_14sdp"
+                android:text="@string/cost_source"
+                android:background="@drawable/state_top_tab"
+                android:textAlignment="center"
+                android:textColor="@color/text_orange"
+                android:textSize="@dimen/_14ssp" />
+
+            <TextView
+                android:id="@+id/textTab2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/font_semi_bold"
+                android:paddingVertical="@dimen/_14sdp"
+                android:text="@string/cost_list"
+                android:background="@drawable/state_top_tab"
+                android:textAlignment="center"
+                android:textColor="@color/text_gray"
+                android:textSize="@dimen/_14ssp" />
+
+        </LinearLayout>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/layoutContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutTabTop" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

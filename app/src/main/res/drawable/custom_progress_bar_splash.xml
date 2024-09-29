@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Phần nền -->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <solid android:color="#DADADA" /> <!-- Màu nền -->
+            <corners android:radius="@dimen/_2sdp" /> <!-- Bo góc -->
+        </shape>
+    </item>
+
+    <!-- Phần tiến độ -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape android:shape="rectangle">
+                <solid android:color="@color/text_dark_blue" /> <!-- Màu tiến độ -->
+                <corners android:radius="@dimen/_2sdp" /> <!-- Bo góc -->
+            </shape>
+        </clip>
+    </item>
+</layer-list>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_act">
+
+        <TextView
+            android:id="@+id/textTitleService"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:fontFamily="@font/font_semi_bold"
+            android:text="@string/service"
+            android:textColor="@color/text_dark_blue"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textAddMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:fontFamily="@font/font_regular"
+            android:text="@string/add_more"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toBottomOf="@id/textTitleService"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textTitleService" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/text_gray"
+            app:layout_constraintEnd_toEndOf="@id/textAddMore"
+            app:layout_constraintStart_toStartOf="@id/textAddMore"
+            app:layout_constraintTop_toBottomOf="@id/textAddMore" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/textTitleService"
+            tools:listitem="@layout/item_category_child" />
+
+        <TextView
+            android:id="@+id/textNoteTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:fontFamily="@font/font_semi_bold"
+            android:text="@string/note_title"
+            android:textColor="@color/text_dark_blue"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rcvCategory" />
+
+        <EditText
+            android:id="@+id/inputNoteTitle"
+            android:layout_width="match_parent"
+            android:inputType="text"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@drawable/bg_input"
+            android:fontFamily="@font/font_regular"
+            android:hint="@string/information_cannot_be_left_blank"
+            android:imeOptions="actionNext"
+            android:lines="1"
+            android:padding="@dimen/_12sdp"
+            android:textColor="@color/text_dark_blue"
+            android:textColorHint="@color/text_gray"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintTop_toBottomOf="@id/textNoteTitle" />
+
+        <TextView
+            android:id="@+id/textRevenueTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:fontFamily="@font/font_semi_bold"
+            android:text="@string/cost"
+            android:textColor="@color/text_dark_blue"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputNoteTitle" />
+
+        <EditText
+            android:maxLength="8"
+            android:id="@+id/inputRevenue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:background="@drawable/bg_input"
+            android:fontFamily="@font/font_regular"
+            android:hint="@string/_0_vnd"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:lines="1"
+            android:paddingHorizontal="@dimen/_12sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textColor="@color/text_dark_blue"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toBottomOf="@id/textRevenueTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/textRevenueTitle"
+            app:layout_constraintTop_toTopOf="@id/textRevenueTitle" />
+
+        <TextView
+            android:id="@+id/textTitleTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:fontFamily="@font/font_semi_bold"
+            android:text="@string/time"
+            android:textColor="@color/text_dark_blue"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputRevenue" />
+
+        <EditText
+            android:id="@+id/inputTime"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_input"
+            android:clickable="false"
+            android:focusable="false"
+            android:fontFamily="@font/font_regular"
+            android:gravity="center"
+            android:imeOptions="actionDone"
+            android:inputType="datetime"
+            android:paddingHorizontal="@dimen/_12sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            android:text="12/12/2024"
+            android:textColor="@color/text_dark_blue"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toBottomOf="@id/textTitleTime"
+            app:layout_constraintEnd_toEndOf="@+id/inputRevenue"
+            app:layout_constraintTop_toTopOf="@id/textTitleTime" />
+
+        <!--<ImageView
+            android:id="@+id/iconChoseTime"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:padding="@dimen/_4sdp"
+            android:src="@drawable/icon_calendar"
+            app:layout_constraintBottom_toBottomOf="@id/inputTime"
+            app:layout_constraintStart_toEndOf="@id/inputTime"
+            app:layout_constraintTop_toTopOf="@id/inputTime" />-->
+
+        <View
+            android:id="@+id/viewCenterButton"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputTime" />
+
+        <TextView
+            android:id="@+id/buttonCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:background="@drawable/bg_dark_blue"
+            android:fontFamily="@font/font_medium"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_12sdp"
+            android:text="@string/cancel"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toStartOf="@id/viewCenterButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/viewCenterButton" />
+
+        <TextView
+            android:id="@+id/buttonSaveRecord"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:background="@drawable/bg_orange"
+            android:fontFamily="@font/font_medium"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_12sdp"
+            android:text="@string/save"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintStart_toEndOf="@id/viewCenterButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/viewCenterButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

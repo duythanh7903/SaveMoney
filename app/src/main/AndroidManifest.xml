@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"
+        tools:ignore="SelectedPhotoAccess" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+
+    <application
+        android:name=".GlobalApp"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BaseProjectFlamingo"
+        tools:targetApi="31">
+
+        <activity
+            android:name=".ui.screen.splash.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="nosensor">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <activity
+            android:name=".ui.screen.ob.OnBoardingActivity"
+            android:exported="false"
+            android:screenOrientation="nosensor" />
+
+        <activity
+            android:name=".ui.screen.home.HomeActivity"
+            android:exported="false"
+            android:screenOrientation="nosensor" />
+
+        <activity
+            android:name=".ui.screen.login.LoginActivity"
+            android:exported="false"
+            android:screenOrientation="nosensor" />
+
+        <activity
+            android:name=".ui.screen.register.RegisterActivity"
+            android:exported="false"
+            android:screenOrientation="nosensor" />
+
+        <activity
+            android:name=".ui.screen.manage_income.real.ManageRealIncomeActivity"
+            android:exported="false"
+            android:screenOrientation="nosensor" />
+
+        <activity
+            android:name=".ui.screen.manage_income.expected.ManageExpectedIncomeActivity"
+            android:exported="false"
+            android:screenOrientation="nosensor" />
+
+
+        <activity
+            android:name=".ui.screen.manage_cost.actual.ManageActualCostsActivity"
+            android:exported="false"
+            android:screenOrientation="nosensor" />
+
+        <activity
+            android:name=".ui.screen.manage_cost.estimate.ManageEstimateCostsActivity"
+            android:exported="false"
+            android:screenOrientation="nosensor" />
+
+        <activity
+            android:name=".ui.screen.notifications.NotificationsActivity"
+            android:exported="false"
+            android:screenOrientation="nosensor" />
+
+        <activity
+            android:name=".ui.screen.language.LanguageActivity"
+            android:exported="false"
+            android:screenOrientation="nosensor" />
+
+
+        <receiver android:name=".serivce.AlarmReceiver" />
+
+    </application>
+
+</manifest>

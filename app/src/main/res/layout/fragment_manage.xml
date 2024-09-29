@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_act">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:orientation="vertical"
+            tools:listitem="@layout/item_record_manage"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/layoutCalendar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animNotFound"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            app:layout_constraintBottom_toBottomOf="@id/rcv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/rcv"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/anim_not_found" />
+
+        <LinearLayout
+            android:id="@+id/layoutCalendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white_border_top"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_12sdp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingEnd="@dimen/_8sdp"
+                    tools:ignore="RtlSymmetry">
+
+                    <TextView
+                        android:id="@+id/tabFilter1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:background="@drawable/state_bg_filter_record"
+                        android:fontFamily="@font/font_semi_bold"
+                        android:padding="@dimen/_8sdp"
+                        android:text="@string/real_income"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <TextView
+                        android:id="@+id/tabFilter2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:background="@drawable/state_bg_filter_record"
+                        android:fontFamily="@font/font_semi_bold"
+                        android:padding="@dimen/_8sdp"
+                        android:text="@string/actual_costs"
+                        android:textColor="@color/text_dark_blue"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <TextView
+                        android:id="@+id/tabFilter3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:background="@drawable/state_bg_filter_record"
+                        android:fontFamily="@font/font_semi_bold"
+                        android:padding="@dimen/_8sdp"
+                        android:text="@string/expected_income"
+                        android:textColor="@color/text_dark_blue"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <TextView
+                        android:id="@+id/tabFilter4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:background="@drawable/state_bg_filter_record"
+                        android:fontFamily="@font/font_semi_bold"
+                        android:padding="@dimen/_8sdp"
+                        android:text="@string/estimated_cost"
+                        android:textColor="@color/text_dark_blue"
+                        android:textSize="@dimen/_12ssp" />
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_8sdp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
