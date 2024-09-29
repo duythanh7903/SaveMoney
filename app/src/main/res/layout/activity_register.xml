@@ -64,7 +64,6 @@
             app:layout_constraintEnd_toEndOf="@id/textRegisterToContinue" />
 
         <EditText
-            android:text="lothanhduy@gmail.com"
             android:id="@+id/inputEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -87,7 +86,6 @@
             tools:ignore="Autofill,UnusedAttribute" />
 
         <EditText
-            android:text="Thanh Duy"
             android:id="@+id/inputUserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -110,7 +108,6 @@
             tools:ignore="Autofill,UnusedAttribute" />
 
         <EditText
-            android:text="123123123123"
             android:id="@+id/inputPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
