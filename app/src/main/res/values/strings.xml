@@ -92,4 +92,8 @@
     <string name="something_went_wrong">Something went wrong!</string>
     <string name="update_categories">Update Categories</string>
     <string name="update">Update</string>
+    <string name="choose_type_filter">Choose Type Filter Record</string>
+    <string name="single_date">Single Date</string>
+    <string name="range_date">Range Date</string>
+    <string name="title_range_date">Select Range Date</string>
 </resources>

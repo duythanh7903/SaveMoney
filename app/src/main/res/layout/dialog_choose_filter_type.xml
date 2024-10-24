@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_dialog"
+        android:padding="@dimen/_12sdp">
+
+        <ImageView
+            android:id="@+id/iconClear"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:padding="@dimen/_2sdp"
+            android:src="@drawable/icon_clear_cirlce"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textAddCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_semi_bold"
+            android:text="@string/choose_type_filter"
+            android:textColor="@color/text_dark_blue"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iconClear" />
+
+        <LinearLayout
+            android:id="@+id/btnSingleDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:background="@drawable/bg_white_border_medium_stroke"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/_12sdp"
+            app:layout_constraintTop_toBottomOf="@id/textAddCategory">
+
+            <ImageView
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:src="@drawable/icon_single_date" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:layout_weight="1"
+                android:fontFamily="@font/font_medium"
+                android:text="@string/single_date"
+                android:textColor="@color/text_dark_blue"
+                android:textSize="@dimen/_14ssp" />
+
+            <ImageView
+                android:id="@+id/iconTickSingle"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:padding="@dimen/_2sdp"
+                android:src="@drawable/state_tick" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnRangeDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:background="@drawable/bg_white_border_medium_stroke"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/_12sdp"
+            app:layout_constraintTop_toBottomOf="@id/btnSingleDate">
+
+            <ImageView
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:src="@drawable/icon_range_date" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:layout_weight="1"
+                android:fontFamily="@font/font_medium"
+                android:text="@string/range_date"
+                android:textColor="@color/text_dark_blue"
+                android:textSize="@dimen/_14ssp" />
+
+            <ImageView
+                android:id="@+id/iconTickRange"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:padding="@dimen/_2sdp"
+                android:src="@drawable/state_tick" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

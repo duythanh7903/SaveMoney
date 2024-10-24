@@ -6,13 +6,6 @@ import android.content.SharedPreferences
 object PreferencesUtils {
 
     private const val SHARED_PREFERENCES_NAME = "TEXT_REPEATER"
-    const val LANGUAGE = "language"
-    const val SHOWED_LANGUAGE = "showed_language"
-    const val SHOWED_INTRO = "showed_intro"
-    const val SELECTED_FONT = "selected_font"
-    const val FORCE_RATED = "force_rated"
-    const val GENERATE_CLICK_COUNT = "generate_click_count"
-    const val FINISH_APP_COUNT = "finish_app_count"
 
 
     private var sharePref: SharedPreferences? = null
@@ -57,4 +50,8 @@ object PreferencesUtils {
     var accountBalance: Long
         get() = getValue("account_balance", 0)
         set(value) = setValue("account_balance", value)
+
+    var filterType: Int
+        get() = getValue("filter_type", 0)
+        set(value) = setValue("filter_type", value)
 }

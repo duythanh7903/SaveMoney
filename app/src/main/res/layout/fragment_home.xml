@@ -80,7 +80,7 @@
             android:layout_height="@dimen/_24sdp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:padding="@dimen/_2sdp"
-            android:src="@drawable/ic_setting"
+            android:src="@drawable/icon_language"
             app:tint="@color/text_dark_blue"
             app:layout_constraintBottom_toBottomOf="@id/iconNotification"
             app:layout_constraintEnd_toStartOf="@id/iconNotification"

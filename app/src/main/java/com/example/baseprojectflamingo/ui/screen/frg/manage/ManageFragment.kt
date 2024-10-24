@@ -1,6 +1,7 @@
 package com.example.baseprojectflamingo.ui.screen.frg.manage
 
 import android.graphics.Color
+import android.util.Log
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.example.baseprojectflamingo.R
@@ -9,6 +10,7 @@ import com.example.baseprojectflamingo.base.ext.click
 import com.example.baseprojectflamingo.base.ext.hide
 import com.example.baseprojectflamingo.base.ext.invisible
 import com.example.baseprojectflamingo.base.ext.show
+import com.example.baseprojectflamingo.commons.PreferencesUtils
 import com.example.baseprojectflamingo.database.AppDatabase
 import com.example.baseprojectflamingo.database.entities.RecordActualCost
 import com.example.baseprojectflamingo.database.entities.RecordEstimateCost
@@ -19,6 +21,9 @@ import com.example.baseprojectflamingo.database.repository.EstCostRepository
 import com.example.baseprojectflamingo.database.repository.ExpectedIncomeRepository
 import com.example.baseprojectflamingo.database.repository.RealIncomeRepository
 import com.example.baseprojectflamingo.databinding.FragmentManageBinding
+import com.example.baseprojectflamingo.ui.screen.dialog.ChooseFilterTypeDialog
+import com.example.baseprojectflamingo.ui.screen.dialog.ChooseFilterTypeDialog.Companion.FLAG_RANGE
+import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -28,6 +33,7 @@ class ManageFragment : BaseFragment<FragmentManageBinding>(R.layout.fragment_man
     private lateinit var listTabFilter: MutableList<TextView>
     private lateinit var viewModel: ManageViewModel
     private lateinit var recordManageAdapter: RecordManageAdapter
+    private lateinit var chooseTypeDialog: ChooseFilterTypeDialog
 
     private var listCacheRecordRealIncome: MutableList<RecordRealIncome> = mutableListOf()
     private var listCacheRecordActualCost: MutableList<RecordActualCost> = mutableListOf()
@@ -44,6 +50,22 @@ class ManageFragment : BaseFragment<FragmentManageBinding>(R.layout.fragment_man
         initStartDateAndEndDate()
         observeData()
         clickViews()
+        initDialogChooseType()
+        initLayoutFilter()
+    }
+
+    private fun initLayoutFilter() {
+        when (PreferencesUtils.filterType) {
+            FLAG_RANGE -> {
+                this@ManageFragment.binding.calendarView.hide()
+                this@ManageFragment.binding.iconFilter.show()
+            }
+
+            else -> {
+                this@ManageFragment.binding.calendarView.show()
+                this@ManageFragment.binding.iconFilter.hide()
+            }
+        }
     }
 
     override fun initData() = Unit
@@ -163,6 +185,64 @@ class ManageFragment : BaseFragment<FragmentManageBinding>(R.layout.fragment_man
                 listCacheRecordEstimateCost
             )
         }
+
+        iconSetting.click {
+            chooseTypeDialog.apply {
+                flagChooseSingleOrRange = PreferencesUtils.filterType
+                onChangeTypeFilter = { type ->
+                    PreferencesUtils.filterType = type
+                    when (type) {
+                        FLAG_RANGE -> {
+                            this@ManageFragment.binding.calendarView.hide()
+                            this@ManageFragment.binding.iconFilter.show()
+                        }
+
+                        else -> {
+                            this@ManageFragment.binding.calendarView.show()
+                            this@ManageFragment.binding.iconFilter.hide()
+                        }
+                    }
+                }
+
+                when (flagChooseSingleOrRange) {
+                    FLAG_RANGE -> {
+                        binding.iconTickRange.isActivated = true
+                        binding.iconTickSingle.isActivated = false
+                    }
+
+                    else -> {
+                        binding.iconTickRange.isActivated = false
+                        binding.iconTickSingle.isActivated = true
+                    }
+                }
+
+            }.show()
+        }
+
+        iconFilter.click { filterDateRange() }
+    }
+
+    private fun filterDateRange() {
+        val picker =
+            MaterialDatePicker.Builder.dateRangePicker()
+                .setTitleText(R.string.title_range_date)
+                .build()
+        picker.show(requireActivity().supportFragmentManager, "SAVE_MONEY")
+        picker.addOnPositiveButtonClickListener {
+            val startDateLongType = it.first
+            val endDateLongType = it.second
+
+            handleFilter(
+                viewModel.indexFilterTab.value ?: 0, startDateLongType, endDateLongType,
+                listCacheRecordRealIncome,
+                listCacheRecordActualCost,
+                listCacheRecordExpectedIncome,
+                listCacheRecordEstimateCost
+            )
+        }
+        picker.addOnNegativeButtonClickListener {
+            picker.dismiss()
+        }
     }
 
     private fun initRcvAdapter() = binding.rcv.apply {
@@ -215,5 +295,9 @@ class ManageFragment : BaseFragment<FragmentManageBinding>(R.layout.fragment_man
             listCacheRecordExpectedIncome,
             listCacheRecordEstimateCost
         )
+    }
+
+    private fun initDialogChooseType() {
+        chooseTypeDialog = ChooseFilterTypeDialog(requireActivity())
     }
 }
