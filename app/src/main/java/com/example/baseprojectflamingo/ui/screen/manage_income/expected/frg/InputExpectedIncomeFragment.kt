@@ -22,6 +22,7 @@ import com.example.baseprojectflamingo.databinding.FragmentInputExpectedIncomeBi
 import com.example.baseprojectflamingo.ui.screen.dialog.AddCategoryDialog
 import com.example.baseprojectflamingo.ui.adapter.ChildCategoryAdapter
 import com.example.baseprojectflamingo.ui.adapter.ParentCategoryAdapter
+import com.example.baseprojectflamingo.ui.screen.dialog.UpdateCategoryDialog
 import com.example.baseprojectflamingo.ui.screen.manage_income.expected.frg.vm.ExpectedViewModel
 import com.example.baseprojectflamingo.ui.screen.manage_income.expected.frg.vm.ViewModelExpectedFactory
 import java.util.Calendar
@@ -33,6 +34,7 @@ class InputExpectedIncomeFragment :
     private lateinit var adapterParentCat: ParentCategoryAdapter
     private lateinit var adapterChildCat: ChildCategoryAdapter
     private lateinit var viewModel: ExpectedViewModel
+    private lateinit var dialogUpdateCategory: UpdateCategoryDialog
 
     private var parentCatSelected: ParentCategory? = null
     private var childCatSelected: ChildCategory? = null
@@ -45,6 +47,11 @@ class InputExpectedIncomeFragment :
         observe()
         clickViews()
         initInputTime()
+        initDialogUpdateCategory()
+    }
+
+    private fun initDialogUpdateCategory() {
+        dialogUpdateCategory = UpdateCategoryDialog(requireActivity())
     }
 
     override fun initData() = Unit
@@ -144,6 +151,15 @@ class InputExpectedIncomeFragment :
                     adapterChildCat.indexSelected = index
                     adapterChildCat.notifyItemChanged(indexSelectedBefore)
                     childCatSelected = categoryChild
+                }
+            }, onEditItem = { c, i ->
+                dialogUpdateCategory.apply {
+                    onInputNull = { requireActivity().showToast(R.string.this_field_cannot_be_left_blank) }
+                    onUpdateCategory = { title ->
+                        c.categoryName = title
+                        viewModel.updateChildCate(c)
+                    }
+                    show()
                 }
             }
         )

@@ -41,6 +41,11 @@ class EstViewModel(
             cancel()
         }
 
+    fun updateChildCate(category: ChildCategory) = viewModelScope.launch(Dispatchers.IO) {
+        childCatRepo.updateChildCategory(category)
+        cancel()
+    }
+
     fun insertChildCate(catName: String, parentCate: ParentCategory) =
         viewModelScope.launch(Dispatchers.IO) {
             val category = ChildCategory(

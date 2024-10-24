@@ -12,7 +12,8 @@ import com.example.baseprojectflamingo.databinding.ItemCategoryChildBinding
 
 class ChildCategoryAdapter(
     private val contextParams: Context,
-    private val onClickItem: (category: ChildCategory, index: Int) -> Unit
+    private val onClickItem: (category: ChildCategory, index: Int) -> Unit,
+    private val onEditItem: (category: ChildCategory, index: Int) -> Unit
 ) : BaseRecyclerView<ChildCategory>() {
 
     var indexSelected: Int = -1
@@ -41,7 +42,8 @@ class ChildCategoryAdapter(
 
     override fun onClickViews(binding: ViewDataBinding, obj: ChildCategory, layoutPosition: Int) {
         if (binding is ItemCategoryChildBinding) {
-            binding.root.click { onClickItem.invoke(obj, layoutPosition) }
+            binding.containerImage.click { onClickItem.invoke(obj, layoutPosition) }
+            binding.iconEditCate.click { onEditItem.invoke(obj, layoutPosition) }
         }
     }
 

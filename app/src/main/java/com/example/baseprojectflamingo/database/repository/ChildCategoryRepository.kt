@@ -13,5 +13,9 @@ class ChildCategoryRepository(
         childCateDao.insertChildCategory(category)
     }
 
+    suspend fun updateChildCategory(category: ChildCategory) = withContext(Dispatchers.IO) {
+        childCateDao.updateChildCategory(category)
+    }
+
     fun getAllChildCategories() = childCateDao.getAllChildCategories()
 }

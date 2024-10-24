@@ -56,6 +56,11 @@ class RealViewModel(
             cancel()
         }
 
+    fun updateChildCate(category: ChildCategory) = viewModelScope.launch(Dispatchers.IO) {
+        childCatRepo.updateChildCategory(category)
+        cancel()
+    }
+
     fun saveRecordRealIncome(record: RecordRealIncome, context: Context) =
         viewModelScope.launch(Dispatchers.IO) {
             realIncomeRepo.saveRecordRealIncome(record)

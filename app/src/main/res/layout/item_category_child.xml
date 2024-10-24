@@ -7,7 +7,7 @@
 
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/iconCategory"
         android:layout_width="@dimen/_84sdp"
         android:layout_height="wrap_content"
@@ -16,11 +16,14 @@
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/containerImage"
             android:layout_width="@dimen/_40sdp"
             android:layout_height="@dimen/_40sdp"
             android:layout_margin="@dimen/_8sdp"
             app:cardCornerRadius="@dimen/_8sdp"
-            app:cardElevation="@dimen/_4sdp">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/iconCategoryChild"
@@ -36,16 +39,31 @@
             android:id="@+id/textCategoryName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/font_medium"
-            tools:text="Category name"
-            android:textColor="@color/text_dark_blue"
-            android:textSize="@dimen/_12ssp"
+            android:layout_marginTop="@dimen/_8sdp"
             android:ellipsize="marquee"
             android:focusable="true"
             android:focusableInTouchMode="true"
+            android:fontFamily="@font/font_medium"
             android:marqueeRepeatLimit="marquee_forever"
             android:scrollHorizontally="true"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:textColor="@color/text_dark_blue"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/containerImage"
+            tools:text="Category name" />
 
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/iconEditCate"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:contentDescription="@string/app_name"
+            android:elevation="@dimen/_10sdp"
+            android:src="@drawable/icon_edit_child_cat"
+            app:layout_constraintEnd_toEndOf="@id/containerImage"
+            app:layout_constraintStart_toEndOf="@id/containerImage"
+            app:layout_constraintTop_toTopOf="@id/containerImage" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

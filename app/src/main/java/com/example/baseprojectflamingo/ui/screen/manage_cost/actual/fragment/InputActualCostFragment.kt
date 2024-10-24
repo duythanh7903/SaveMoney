@@ -21,6 +21,7 @@ import com.example.baseprojectflamingo.databinding.FragmentInputActualCostBindin
 import com.example.baseprojectflamingo.ui.adapter.ChildCategoryAdapter
 import com.example.baseprojectflamingo.ui.adapter.ParentCategoryAdapter
 import com.example.baseprojectflamingo.ui.screen.dialog.AddCategoryDialog
+import com.example.baseprojectflamingo.ui.screen.dialog.UpdateCategoryDialog
 import com.example.baseprojectflamingo.ui.screen.manage_cost.actual.fragment.vm.ActualViewModel
 import com.example.baseprojectflamingo.ui.screen.manage_cost.actual.fragment.vm.ViewModelActualFactory
 
@@ -31,6 +32,7 @@ class InputActualCostFragment :
     private lateinit var adapterParentCat: ParentCategoryAdapter
     private lateinit var adapterChildCat: ChildCategoryAdapter
     private lateinit var viewModel: ActualViewModel
+    private lateinit var dialogUpdateCategory: UpdateCategoryDialog
 
     private var parentCatSelected: ParentCategory? = null
     private var childCatSelected: ChildCategory? = null
@@ -43,6 +45,11 @@ class InputActualCostFragment :
         observe()
         clickViews()
         initInputTime()
+        initDialogUpdateCategory()
+    }
+
+    private fun initDialogUpdateCategory() {
+        dialogUpdateCategory = UpdateCategoryDialog(requireActivity())
     }
 
     override fun initData() = Unit
@@ -145,6 +152,19 @@ class InputActualCostFragment :
                     adapterChildCat.indexSelected = index
                     adapterChildCat.notifyItemChanged(indexSelectedBefore)
                     childCatSelected = categoryChild
+                }
+            }, onEditItem = { categoryChild, index ->
+                if (categoryChild.id == 0L) {
+                    activity?.showToast(R.string.this_is_sample_item)
+                } else {
+                    dialogUpdateCategory.apply {
+                        onInputNull =
+                            { requireActivity().showToast(R.string.this_field_cannot_be_left_blank) }
+                        onUpdateCategory = { title ->
+                            categoryChild.categoryName = title
+                            viewModel.updateChildCate(categoryChild)
+                        }
+                    }.show()
                 }
             }
         )
