@@ -46,7 +46,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
             binding.iconTab1,
             binding.iconTab2,
             binding.iconTab3,
-            binding.iconTab4
+            binding.iconTab4,
+            binding.iconTab5
         )
     }
 
@@ -56,6 +57,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
             binding.textTab2,
             binding.textTab3,
             binding.textTab4,
+            binding.textTab5
         )
     }
 
@@ -64,6 +66,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
         buttonTab2.click { onEventChangeTab(1) }
         buttonTab3.click { onEventChangeTab(2) }
         buttonTab4.click { onEventChangeTab(3) }
+        buttonTab5.click { onEventChangeTab(4) }
     }
 
     private fun onEventChangeTab(indexTab: Int) {

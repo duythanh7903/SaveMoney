@@ -70,7 +70,6 @@ class ListActualCostFragment :
             } else actualCostAdapter.submitData(listRecord)
             val s1 = processPoints(listRecord)
             val sum = s1.sumOf { it.totalCost }
-            Log.d("duylt", sum.toString())
         }
     }
 

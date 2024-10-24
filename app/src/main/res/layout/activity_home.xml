@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="4"
+            android:weightSum="5"
             android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:ignore="DisableBaselineAlignment">
@@ -149,6 +149,35 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/font_semi_bold"
                     android:text="@string/account"
+                    android:textSize="@dimen/_12ssp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/buttonTab5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/_2sdp"
+                android:paddingVertical="@dimen/_12sdp"
+                tools:ignore="UseCompoundDrawables,UselessLeaf,UselessParent">
+
+                <ImageView
+                    android:id="@+id/iconTab5"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/state_tab_news" />
+
+                <TextView
+                    android:id="@+id/textTab5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/font_semi_bold"
+                    android:text="@string/news"
                     android:textSize="@dimen/_12ssp" />
 
             </LinearLayout>
